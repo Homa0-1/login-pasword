@@ -1,128 +1,340 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap";
 
-*{
+* {
+    box-sizing: border-box;
+    font-family: Geologica, Courier, monospace;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background:url(https://images.unsplash.com/photo-1485470733090-0aae1788d5af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1517&q=80) no-repeat;
-    background-size:cover;
-    background-position: center;
 }
 
-.wrapper{
-    width: 420px;
-    color:#fff;
-    border-radius: 10px;
-    padding: 30px 40px;
-    border: 2px solid rgb(255, 255, 255, .2);
-    backdrop-filter:blur (20px);
-    box-shadow: 0 0 10px rgba(0,0,0,.2);
-    background: transparent;
-}
-.wrapper h1{
-    font-size: 36px;
-    text-align: center;
-}
-
-.wrapper .input-box{
-    width: 100%;
-    height: 50px;
-    margin: 30px 0;
-    position: relative;
-}
-
-.input-box input{
-    width: 100%;
+body, html {
+    background-color: #fff;
     height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    border: 2px solid rgb(255, 255, 255, .2);
-    border-radius: 40px;
-    font-size: 16px;
-    color: #fff;
-    padding: 20px 45px 20px 20px;
 }
 
-.input-box input::placeholder{
-    color: #fff;
-}
-.input-box i{
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
+html {
+    font-size: 10px;
 }
 
-.wrapper .remember{
+@media (max-width: 640px) {
+    html {
+        font-size: 1.6vw;
+    }
+}
+
+@media (max-width: 430px) {
+    html {
+        font-size: 2.3529411765vw;
+    }
+}
+
+/* Фоновый контейнер с анимацией */
+.background-container {
+    align-items: flex-end;
+    background-color: #fff;
     display: flex;
+    height: 100vh;
     justify-content: space-between;
-    font-size: 14.5px;
-    margin: -15px 0 15px;
-    border-radius: 10px;
-    padding: 30px 40px;
-}
-.remember label input{
-    accent-color: #fff;
-    margin-right: 3px;
-}
-.remember a{
-    color: #fff;
-    text-decoration: none;
-}
-
-.remember a:hover{
-    text-decoration: underline;
-}
-.wrapper .btn{
+    overflow: hidden;
+    position: fixed;
     width: 100%;
-    height: 45px;
-    background: #fff;
-    border: none;
-    outline: none;
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgb(0,0,0,.1);
-    cursor: pointer;
-    font-size: 16px;
-    color: #333;
-    font-weight: 600;
-}
-.wrapper .register-link{
-    font-size: 14.5px;
-    text-align: center;
-    margin-top: 20px;
-
+    z-index: 5;
 }
 
-.register-link p a{
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-}
-.register-link p a:hover{
-    text-decoration: underline;
-    color: orange;
-}
-
-
-.wrapper .logo{
-   position: absolute;
-    top: 0;
+.background-container:before {
+    background: linear-gradient(45deg, #00dc82, #36e4da, #0047e1);
+    background-position: 50%;
+    background-size: cover;
+    content: "";
+    filter: blur(12px);
+    height: 100%;
     left: 0;
-    padding: 14px;
-   font-size: 15px;
+    opacity: .2;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
-.left a{
-    color: #fff;
+
+.background-container .flower {
+    animation: flower 6s ease-in-out infinite;
+    height: 70%;
+    pointer-events: none;
+    position: absolute;
+    bottom: 0;
+    width: 200px;
+    background: linear-gradient(45deg, rgba(0, 220, 130, 0.1), rgba(54, 228, 218, 0.1));
+    border-radius: 50% 50% 0 0;
 }
-.left a:hover{
-    color: orange;
+
+.background-container .flower:nth-child(1) {
+    left: 0;
+}
+
+.background-container .flower:nth-child(2) {
+    animation-delay: 3s;
+    animation-direction: reverse;
+    right: 0;
+}
+
+@keyframes flower {
+    0%, 100% {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(6deg);
+    }
+}
+
+@media (max-width: 1024px) {
+    .background-container .flower {
+        display: none;
+    }
+}
+
+/* Основные стили контента */
+.antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    z-index: 20;
+}
+
+.font-sans {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.dark .dark\:bg-black {
+    background-color: #000 !important;
+}
+
+.dark .dark\:text-white {
+    color: #fff !important;
+}
+
+.grid {
+    display: grid;
+}
+
+.min-h-screen {
+    min-height: 100vh;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.place-content-center {
+    place-content: center;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.left-0 {
+    left: 0;
+}
+
+.right-0 {
+    right: 0;
+}
+
+.z-10 {
+    z-index: 10;
+}
+
+.z-20 {
+    z-index: 20;
+}
+
+/* Эффект прожектора */
+.spotlight {
+    background: linear-gradient(45deg, #00dc82, #36e4da, #0047e1);
+    bottom: -30vh;
+    filter: blur(20vh);
+    height: 40vh;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+/* Контейнер содержимого */
+.max-w-520px {
+    max-width: 520px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Стили заголовков */
+.text-8xl {
+    font-size: 6rem;
+    line-height: 1;
+}
+
+.text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.font-light {
+    font-weight: 300;
+}
+
+.leading-tight {
+    line-height: 1.25;
+}
+
+.mb-8 {
+    margin-bottom: 2rem;
+}
+
+.mb-16 {
+    margin-bottom: 4rem;
+}
+
+/*Кнопка градиентной границы*/
+.gradient-border {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: .5rem;
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* Светлая тема */
+.gradient-border {
+    background-color: #ffffff4d;
+}
+
+.gradient-border:before {
+    background: linear-gradient(90deg, #e2e2e2, #e2e2e2 25%, #00dc82, #36e4da 75%, #0047e1);
+}
+
+/* Темная тема */
+.dark .gradient-border {
+    background-color: #1414144d;
+}
+
+.dark .gradient-border:before {
+    background: linear-gradient(90deg, #303030, #303030 25%, #00dc82, #36e4da 75%, #0047e1);
+}
+
+.gradient-border:before {
+    background-size: 400% auto;
+    border-radius: .5rem;
+    bottom: 0;
+    content: "";
+    left: 0;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: .5;
+    padding: 2px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: background-position .3s ease-in-out, opacity .2s ease-in-out;
+    width: 100%;
+}
+
+.gradient-border:hover:before {
+    background-position: -50% 0;
+    opacity: 1;
+}
+
+.gradient-border:hover {
+    transform: translateY(-2px);
+}
+
+/* Адаптивные стили */
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.py-2 {
+    padding-bottom: .5rem;
+    padding-top: .5rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.w-full {
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .sm\:px-0 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .sm\:px-6 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    .sm\:py-3 {
+        padding-bottom: .75rem;
+        padding-top: .75rem;
+    }
+    .sm\:text-4xl {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+    }
+    .sm\:text-xl {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+}
+
+/* Цвета текста */
+.text-black {
+    color: #000;
+}
+
+/* Медиа-запрос для темной темы*/
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #000;
+        color: #fff;
+    }
+    
+    .bg-white {
+        background-color: #000;
+    }
+    
+    .text-black {
+        color: #fff;
+    }
 }

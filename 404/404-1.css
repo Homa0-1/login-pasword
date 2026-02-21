@@ -11,7 +11,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background:url(https://sun9-33.userapi.com/s/v1/ig2/KfsgWz6NmvKDEmp7Qv4lC7NrpRxgxU1qFEB6RMGidPi6n4L8hlX_Ej5KuUfF7sWIqcNibSkNhZFhT0RIokvczweH.jpg?quality=96&as=32x16,48x25,72x37,108x56,160x82,240x124,360x185,480x247,540x278,640x330,720x371,1080x556,1280x659,1440x742,2560x1319&from=bu&cs=2560x0) no-repeat;
+    background:url(https://images.unsplash.com/photo-1485470733090-0aae1788d5af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1517&q=80) no-repeat;
     background-size:cover;
     background-position: center;
 }
@@ -21,9 +21,9 @@ body{
     color:#fff;
     border-radius: 10px;
     padding: 30px 40px;
-   /* border: 2px solid rgb(255, 255, 255, .2);
+    border: 2px solid rgb(255, 255, 255, .2);
     backdrop-filter:blur (20px);
-    box-shadow: 0 0 10px rgba(0,0,0,.2);*/
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
     background: transparent;
 }
 .wrapper h1{
@@ -110,4 +110,25 @@ body{
 .register-link p a:hover{
     text-decoration: underline;
     color: orange;
+}
+
+
+.wrapper .logo{
+   position: absolute;
+    top: 0;
+    left: 0;
+    padding: 14px;
+   font-size: 15px;
+}
+.left a{
+    color: #fff;
+}
+.left a:hover{
+    color: orange;
+}
+
+.new {
+    width: 355px;
+    border-radius: 90px;
+    background: transparent;
 }
